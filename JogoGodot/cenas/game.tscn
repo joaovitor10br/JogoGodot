@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shmup2D/sprites/background.png" type="Texture" id=1]
+[ext_resource path="res://shmup2D/sprites/ship.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Ship.gd" type="Script" id=3]
+
+[node name="game" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ship" type="Node2D" parent="."]
+
+[node name="Ship" type="Sprite" parent="ship"]
+position = Vector2( 80, 262 )
+texture = ExtResource( 2 )
+hframes = 2
+script = ExtResource( 3 )
