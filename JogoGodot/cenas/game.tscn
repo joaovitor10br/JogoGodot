@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://shmup2D/sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://shmup2D/sprites/ship.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV * .01 * TIME);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -39,6 +49,7 @@ tracks/0/keys = {
 [node name="game" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
+material = SubResource( 4 )
 texture = ExtResource( 1 )
 centered = false
 
