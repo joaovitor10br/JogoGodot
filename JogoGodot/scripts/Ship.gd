@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 const PRE_LAZER = preload("res://cenas/lazer.tscn")
 
@@ -28,9 +28,10 @@ func _process(delta):
 		dirY += 1
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		var lazer = PRE_LAZER.instance()
-		get_parent().add_child(lazer)
-		lazer.global_position = global_position + Vector2(0, -30)
+		if get_tree().get_nodes_in_group("lazeres").size() < 20:
+			var lazer = PRE_LAZER.instance()
+			get_parent().add_child(lazer)
+			lazer.global_position = $blaster.global_position
 		
 	translate(Vector2(dirX,dirY) * velocidade * delta)
 	

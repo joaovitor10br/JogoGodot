@@ -44,6 +44,7 @@ centered = false
 
 [node name="ship" type="Node2D" parent="."]
 position = Vector2( 80, 262 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -51,10 +52,12 @@ __meta__ = {
 [node name="Ship" type="Sprite" parent="ship"]
 texture = ExtResource( 2 )
 hframes = 2
-script = ExtResource( 3 )
 
 [node name="anim" type="AnimationPlayer" parent="ship"]
 autoplay = "fogo"
 playback_speed = 2.0
 anims/RESET = SubResource( 1 )
 anims/fogo = SubResource( 2 )
+
+[node name="blaster" type="Position2D" parent="ship"]
+position = Vector2( 0, -32 )

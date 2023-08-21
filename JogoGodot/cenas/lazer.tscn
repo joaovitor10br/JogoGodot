@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[node name="lazer" type="Node2D"]
+[node name="lazer" type="Node2D" groups=["lazeres"]]
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -48,3 +48,9 @@ frame = 2
 autoplay = "default"
 anims/RESET = SubResource( 1 )
 anims/default = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -22 )
+scale = Vector2( 0.25, 0.2 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
